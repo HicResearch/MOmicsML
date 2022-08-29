@@ -1,3 +1,6 @@
+
+[![DOI](https://zenodo.org/badge/528778710.svg)](https://zenodo.org/badge/latestdoi/528778710)
+
 # MOmicsML
 
 This repository includes the code used for manuscript 'Machine learning for classification of hypertension subtypes using multi-omics: a multi-centre, retrospective, data-driven study'.
