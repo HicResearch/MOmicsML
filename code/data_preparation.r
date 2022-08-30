@@ -15,7 +15,7 @@
 data_preparation <- function() {
 
   #load multi-omics file with simulated data
-  data <- read.csv('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/momics_data.csv',fileEncoding="UTF-8-BOM")
+  data <- read.csv('demo_data/Multi-omics/momics_data.csv',fileEncoding="UTF-8-BOM")
   
   c_type <- c('PA','PPGL','CS','PHT')
   
@@ -30,37 +30,37 @@ data_preparation <- function() {
     }
   }
   #save multi-omics data file without outliers
-  write.csv(data, file = '//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/momics_data_without_outliers.csv', row.names=FALSE)
+  write.csv(data, file = 'demo_data/Multi-omics/momics_data_without_outliers.csv', row.names=FALSE)
   
   
   #Split train and test datasets
   library(caTools)
   #random seed for reproducibility
   set.seed(3)
-  dataIn <- read.csv('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/momics_data.csv', stringsAsFactors = TRUE,fileEncoding="UTF-8-BOM")
+  dataIn <- read.csv('demo_data/Multi-omics/momics_data.csv', stringsAsFactors = TRUE,fileEncoding="UTF-8-BOM")
   
-  source('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/code/stratified.r')
+  source('code/stratified.r')
   a<-stratified(dataIn, c("Condition", "Gender"), 0.2)
   dataIn$set <- NA
   dataIn$set[which(dataIn$ID %in% a$ID)] <- "test"
   dataIn$set[is.na(dataIn$set)] <- "train"
   dataIn$set <- factor(dataIn$set, levels = c("train","test"))
   
-  write.csv(dataIn[dataIn$set=="train",which(colnames(dataIn)!="set")],"//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/Training/Traindata.csv", row.names = FALSE)
-  write.csv(dataIn[dataIn$set=="test",which(colnames(dataIn)!="set")],"//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/Testing/Testdata.csv", row.names = FALSE)
+  write.csv(dataIn[dataIn$set=="train",which(colnames(dataIn)!="set")],"demo_data/Multi-omics/Training/Traindata.csv", row.names = FALSE)
+  write.csv(dataIn[dataIn$set=="test",which(colnames(dataIn)!="set")],"demo_data/Multi-omics/Testing/Testdata.csv", row.names = FALSE)
 
   
   set.seed(3)
-  dataIn <- read.csv('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/momics_data_without_outliers.csv', stringsAsFactors = TRUE,fileEncoding="UTF-8-BOM")
+  dataIn <- read.csv('demo_data/Multi-omics/momics_data_without_outliers.csv', stringsAsFactors = TRUE,fileEncoding="UTF-8-BOM")
   
-  source('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/code/stratified.r')
+  source('code/stratified.r')
   a<-stratified(dataIn, c("Condition", "Gender"), 0.2)
   dataIn$set <- NA
   dataIn$set[which(dataIn$ID %in% a$ID)] <- "test"
   dataIn$set[is.na(dataIn$set)] <- "train"
   dataIn$set <- factor(dataIn$set, levels = c("train","test"))
   
-  write.csv(dataIn[dataIn$set=="train",which(colnames(dataIn)!="set")],"//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/Training/Traindata_without_outliers.csv", row.names = FALSE)
-  write.csv(dataIn[dataIn$set=="test",which(colnames(dataIn)!="set")],"//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/Testing/Testdata_without_outliers.csv", row.names = FALSE)
+  write.csv(dataIn[dataIn$set=="train",which(colnames(dataIn)!="set")],"demo_data/Multi-omics/Training/Traindata_without_outliers.csv", row.names = FALSE)
+  write.csv(dataIn[dataIn$set=="test",which(colnames(dataIn)!="set")],"demo_data/Multi-omics/Testing/Testdata_without_outliers.csv", row.names = FALSE)
 }
 

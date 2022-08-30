@@ -10,10 +10,10 @@
 #
 #	Author: PS Reel
 
-setwd('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/code/')
+#setwd('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/code/')
 
 # Data Preparation
-source('data_preparation.r')
+source('code/data_preparation.r')
 data_preparation()
 
 # Preprocessing Stage
