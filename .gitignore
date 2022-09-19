@@ -2,7 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
+.DS_Store
+*/.DS_Store
 
 demo_data/Multi-omics/Testing/*.csv
 demo_data/Multi-omics/Training/*.csv
 demo_data/Multi-omics/momics_data_without_outliers.csv
+output/*
