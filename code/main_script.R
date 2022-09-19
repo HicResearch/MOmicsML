@@ -17,7 +17,7 @@ source('code/data_preparation.r')
 data_preparation()
 
 # Preprocessing Stage
-source('preprocessing_stage.r')
+source('code/preprocessing_stage.r')
 preprocessing_stage()
 
 # Feature Selection Stage

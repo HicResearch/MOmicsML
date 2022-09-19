@@ -27,7 +27,7 @@ scenarioDriver <- function(input_parameters) {
   
   # Increase the JVM heap size in rJava's options support:
   # options(java.parameters = "-Xmx2048m") # if you want 2GB RAM
-  options(java.parameters = "-Xmx20144m")
+  options(java.parameters = "-Xmx2048m")
   
   library(caret)
   library(caTools)
@@ -38,13 +38,13 @@ scenarioDriver <- function(input_parameters) {
   library(Boruta)
   library(pROC)
   
-  source("findCommonfeatures.r")
-  source("generate_Syndata.r")
-  source("scenarioRunner.r")
-  source("scenarioGenerator.r")
-  source("extractFeatures.r")
-  source("generate_CM.r")
-  source("scenarioResultAnalysis_Summary.r")
+  source("code/findCommonfeatures.r")
+  source("code/generate_Syndata.r")
+  source("code/scenarioRunner.r")
+  source("code/scenarioGenerator.r")
+  source("code/extractFeatures.r")
+  source("code/generate_CM.r")
+  source("code/scenarioResultAnalysis_Summary.r")
   
   
   

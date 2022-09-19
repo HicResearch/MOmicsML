@@ -12,13 +12,12 @@
 
 preprocessing_stage <- function() {
 
-  setwd('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/code/')
-  source("scenarioDriver.r")
+  source("code/scenarioDriver.r")
   
   #with outliers All multi-omic features
   scenarioDriver(list(
-    fileName_Entries = c("//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/Training/Traindata.csv"),
-    output_Directory_Entries = c("//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Preprocessing_Stage/with_outliers/All_features/momics"),
+    fileName_Entries = c("demo_data/Multi-omics/Training/Traindata.csv"),
+    output_Directory_Entries = c("output/Preprocessing_Stage/with_outliers/All_features/momics"),
     omicsData_Entries = c('all'),
     clinicalPhenotype_Entries = c("all"),
     conditionToClassify_Entries = c("PPGL_PA_CS_PHT"),
@@ -39,8 +38,8 @@ preprocessing_stage <- function() {
   
   #without outliers All multi-omic features
   scenarioDriver(list(
-    fileName_Entries = c("//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/Training/Traindata_without_outliers.csv"),
-    output_Directory_Entries = c("//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Preprocessing_Stage/without_outliers/All_features/momics"),
+    fileName_Entries = c("demo_data/Multi-omics/Training/Traindata_without_outliers.csv"),
+    output_Directory_Entries = c("output/Preprocessing_Stage/without_outliers/All_features/momics"),
     omicsData_Entries = c('all'),
     clinicalPhenotype_Entries = c("all"),
     conditionToClassify_Entries = c("PPGL_PA_CS_PHT"),
