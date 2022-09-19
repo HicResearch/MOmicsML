@@ -38,7 +38,7 @@ scenarioGenerator <- function(input_parameters) {
   # Check if the output folder exists
   if (!file.exists(output_Directory_Entries)){
     print('The output folder does not exist. Creating now...')
-    dir.create(file.path(output_Directory_Entries))
+    dir.create(file.path(output_Directory_Entries), recursive = TRUE)
     output_Directory_Entries <- paste0(output_Directory_Entries,'/')
   } else {
     stop(paste0('The output folder: ',output_Directory_Entries , ' already EXISTS. Please check the output folder path and run again.'))
