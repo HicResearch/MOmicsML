@@ -21,9 +21,9 @@ source('code/preprocessing_stage.r')
 preprocessing_stage()
 
 # Feature Selection Stage
-source('feature_selection_stage.r')
+source('code/feature_selection_stage.r')
 feature_selection_stage()
 
 # Final Training Testing Stage
-source('final_training_testing_stage.r')
+source('code/final_training_testing_stage.r')
 final_training_testing_stage()

@@ -14,8 +14,8 @@
 final_training_testing_stage <- function() {
   
   
-  setwd('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/code/')
-  source('classif_Metrics.r')
+  #setwd('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/code/')
+  source('code/classif_Metrics.r')
   
   
   library(RWeka)
@@ -30,12 +30,12 @@ final_training_testing_stage <- function() {
   # Training using real training dataset (no SMOTE)
   
   ### Gather top features list
-  feature_list <- read.csv("//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Feature_Selection_Stage/without_outliers/Scenarios_subsets/Scenario_1/Set_A/momics/data_for_Venn_diagram_with_cutoff_0.csv")
-  Traindata_orig <- read.csv("//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/Training/Traindata_without_outliers.csv", stringsAsFactors = TRUE)
-  Testdata_orig <- read.csv("//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/Testing/Testdata_without_outliers.csv", stringsAsFactors = TRUE)
+  feature_list <- read.csv("output/Feature_Selection_Stage/without_outliers/Scenarios_subsets/Scenario_1/Set_A/momics/data_for_Venn_diagram_with_cutoff_0.csv")
+  Traindata_orig <- read.csv("demo_data/Multi-omics/Training/Traindata_without_outliers.csv", stringsAsFactors = TRUE)
+  Testdata_orig <- read.csv("demo_data/Multi-omics/Testing/Testdata_without_outliers.csv", stringsAsFactors = TRUE)
   
     
-  setwd('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Final_Training_Testing_Stage/without_SMOTE/')
+  #setwd('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Final_Training_Testing_Stage/without_SMOTE/')
   
   ##### PA PHT ####
   # Select features from final list and subset in Train dataset
@@ -333,23 +333,23 @@ final_training_testing_stage <- function() {
 
   
   # Training using real & synthetic training dataset (with SMOTE)
-  setwd('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/code/')
+  #setwd('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/code/')
   
-  source('findCommonfeatures.r')
-  source('generate_Syndata.r')
+  source('code/findCommonfeatures.r')
+  source('code/generate_Syndata.r')
   
-  feature_out <- findCommonfeatures('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Feature_Selection_Stage/without_outliers/Scenarios_subsets/Scenario_1/Set_A/momics', 
-                                    '//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Final_Training_Testing_Stage/with_SMOTE', 
+  feature_out <- findCommonfeatures('output/Feature_Selection_Stage/without_outliers/Scenarios_subsets/Scenario_1/Set_A/momics', 
+                                    'output/Final_Training_Testing_Stage/with_SMOTE', 
                                     n)
-  generate_Syndata('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/Training/Traindata_without_outliers.csv',
-                   '//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Final_Training_Testing_Stage/with_SMOTE', 
+  generate_Syndata('demo_data/Multi-omics/Training/Traindata_without_outliers.csv',
+                   'output/Final_Training_Testing_Stage/with_SMOTE', 
                    feature_out[[2]])
   
-  feature_list <- read.csv("//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Feature_Selection_Stage/without_outliers/Scenarios_subsets/Scenario_1/Set_A/momics/data_for_Venn_diagram_with_cutoff_0.csv")
-  Traindata_orig <- read.csv("//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Final_Training_Testing_Stage/with_SMOTE/SMOTEdata.csv", stringsAsFactors = TRUE)
-  Testdata_orig <- read.csv("//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/demo_data/Multi-omics/Testing/Testdata_without_outliers.csv", stringsAsFactors = TRUE)
+  feature_list <- read.csv("output/Feature_Selection_Stage/without_outliers/Scenarios_subsets/Scenario_1/Set_A/momics/data_for_Venn_diagram_with_cutoff_0.csv")
+  Traindata_orig <- read.csv("output/Final_Training_Testing_Stage/with_SMOTE/SMOTEdata.csv", stringsAsFactors = TRUE)
+  Testdata_orig <- read.csv("demo_data/Multi-omics/Testing/Testdata_without_outliers.csv", stringsAsFactors = TRUE)
   
-  setwd('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Final_Training_Testing_Stage/with_SMOTE/')
+  #setwd('//ensat-vm/shared/Results/5omics_new/Complete_set/code_copy_for_github_release/output/Final_Training_Testing_Stage/with_SMOTE/')
   
   
   ##### PA PHT ####

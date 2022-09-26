@@ -12,9 +12,9 @@
 
 generate_CM <- function(outDirfinal) {
   library(plyr)
-  source("extractConfusionMatrix.r")
-  source("findMultiClassMetrics.r")
-  source("saveConfusionMatrix.r")
+  source("code/extractConfusionMatrix.r")
+  source("code/findMultiClassMetrics.r")
+  source("code/saveConfusionMatrix.r")
   
 
   scenarioData <- read.csv(paste(outDirfinal,'allScenariosSummaryResult.csv', sep=""),stringsAsFactors = TRUE)

@@ -12,10 +12,10 @@
 
 scenario_subset_generator <- function(training_data_path) {
   
-  setwd(training_data_path)
+  #setwd(training_data_path)
   file_name="Traindata_without_outliers"
   
-  all_sample<- read.csv(paste0(file_name,".csv"))
+  all_sample<- read.csv(paste0(training_data_path,file_name,".csv"))
   #Age subsets
   for (i in 1:2){
     if (i==1){#male scenario
@@ -27,7 +27,7 @@ scenario_subset_generator <- function(training_data_path) {
     }
     
     subset <- droplevels(subset)
-    write.csv(subset, file = paste0("Scenario_subsets/Age_subset/",age_type,"/",file_name,".csv"), row.names=FALSE)
+    write.csv(subset, file = paste0(training_data_path,"Scenario_subsets/Age_subset/",age_type,"/",file_name,".csv"), row.names=FALSE)
   }
   
   #Sex subsets
@@ -40,7 +40,7 @@ scenario_subset_generator <- function(training_data_path) {
     
     subset <- all_sample[which(all_sample$Gender %in% gender_type),]
     subset <- droplevels(subset)
-    write.csv(subset, file = paste0("Scenario_subsets/Sex_subset/",gender_type,"/",file_name,".csv"), row.names=FALSE)
+    write.csv(subset, file = paste0(training_data_path,"Scenario_subsets/Sex_subset/",gender_type,"/",file_name,".csv"), row.names=FALSE)
     
   }
   
